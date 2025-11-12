@@ -1,0 +1,344 @@
+/* Image Optimization Styles */
+img {
+  max-width: 100%;
+  height: auto;
+  transition: opacity 0.3s ease;
+}
+
+/* Lazy loading styles */
+img[data-src] {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+img.lazy-loaded {
+  opacity: 1;
+}
+
+img.loaded {
+  opacity: 1;
+}
+
+img.load-error {
+  opacity: 0.7;
+  background: #f8f9fa;
+}
+
+img.placeholder {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+/* Product image optimizations */
+.product-image {
+  position: relative;
+  overflow: hidden;
+  background: #f8f9fa;
+}
+
+.product-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  background: #f8f9fa;
+}
+
+/* Hero section image optimizations */
+.hero-background {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Loading animation for images */
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Progressive image loading */
+.progressive-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.progressive-image .preview {
+  filter: blur(10px);
+  transform: scale(1.1);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.progressive-image .preview.loaded {
+  filter: blur(0);
+  transform: scale(1);
+}
+
+/* Optimize icon loading */
+.icon {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
+
+/* Critical image preloading */
+.critical-image {
+  display: none;
+}
+
+/* Responsive image container */
+.responsive-image {
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%; /* 4:3 aspect ratio */
+  position: relative;
+  overflow: hidden;
+}
+
+.responsive-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Optimize product grid images */
+.product-grid .product-image {
+  aspect-ratio: 1 / 1;
+}
+
+.product-grid .product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: white;
+  padding: 1rem;
+}
+
+/* Hero image optimization */
+.hero-section {
+  position: relative;
+}
+
+.hero-section img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Lazy loading fade-in effect */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Optimize background images for performance */
+.optimized-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Reduce layout shifts with aspect ratio boxes */
+.aspect-ratio-box {
+  position: relative;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+}
+
+.aspect-ratio-1-1 {
+  padding-bottom: 100%;
+}
+.aspect-ratio-4-3 {
+  padding-bottom: 75%;
+}
+.aspect-ratio-16-9 {
+  padding-bottom: 56.25%;
+}
+.aspect-ratio-3-2 {
+  padding-bottom: 66.67%;
+}
+
+.aspect-ratio-box img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Print styles to avoid loading images when printing */
+@media print {
+  img {
+    break-inside: avoid;
+  }
+
+  .product-image img {
+    max-height: 200px;
+    object-fit: contain;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  img {
+    transition: none;
+  }
+
+  .fade-in {
+    animation: none;
+  }
+}
+
+/* High DPI screen optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero-background {
+    /* Serve 2x images for retina displays */
+    background-image: url("/assets/hero-background@2x.jpg");
+  }
+}
+
+/* Mobile-first image optimization */
+@media (max-width: 768px) {
+  .product-image img {
+    padding: 0.5rem;
+  }
+
+  .hero-section img {
+    height: 60vh;
+    object-position: top center;
+  }
+}
+/* Critical Above-the-Fold Image Optimization */
+.hero-background {
+  background-image: url("https://images.unsplash.com/photo-1607082350899-7e105aa886ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Progressive Loading Styles */
+.progressive-load {
+  position: relative;
+  overflow: hidden;
+}
+
+.progressive-load img {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.progressive-load img:not(.loaded) {
+  opacity: 0;
+  transform: scale(1.05);
+}
+
+.progressive-load img.loaded {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Aspect Ratio Containers to prevent CLS */
+.aspect-ratio-box {
+  position: relative;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+}
+
+.aspect-ratio-1-1 {
+  padding-bottom: 100%;
+}
+.aspect-ratio-4-3 {
+  padding-bottom: 75%;
+}
+.aspect-ratio-3-2 {
+  padding-bottom: 66.67%;
+}
+.aspect-ratio-16-9 {
+  padding-bottom: 56.25%;
+}
+
+.aspect-ratio-box img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Product Image Specific Optimizations */
+.product-image {
+  position: relative;
+  background: #f8f9fa;
+  aspect-ratio: 1 / 1;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: white;
+  padding: 1rem;
+}
+
+/* Print Optimization */
+@media print {
+  .product-image img {
+    max-height: 150px;
+    object-fit: contain;
+  }
+
+  .hero-background {
+    display: none;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .product-image img {
+    transition: none;
+  }
+
+  .progressive-load img {
+    transition: opacity 0.1s ease;
+  }
+}
+
+/* High DPI Screen Optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero-background {
+    background-image: url("https://images.unsplash.com/photo-1607082350899-7e105aa886ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=3840&q=70");
+  }
+}
+
+/* Bandwidth-saving for slow connections */
+@media (prefers-reduced-data: reduce) {
+  .hero-background {
+    background-image: none;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+
+  img:not(.critical-image) {
+    display: none;
+  }
+}

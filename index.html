@@ -3,13 +3,391 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>E-Commerce Frontend</title>
+    <title>Ecommerce Store</title>
     <link rel="stylesheet" href="styles/main.css" />
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles/main.css" as="style" />
+    <link rel="preload" href="scripts/app.js" as="script" />
+
+    <!-- Preconnect to CDNs -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- DNS prefetch for external domains -->
+    <link rel="dns-prefetch" href="https://fakestoreapi.com" />
+
+    <!-- Add to existing stylesheets -->
+    <link rel="stylesheet" href="styles/optimization.css" />
+
+    <!-- Add to existing scripts -->
+    <script src="scripts/image-optimizer.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Critical above-the-fold CSS */
+      .header {
+        background: #fff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+      }
+      .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 0;
+        height: 70px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .logo-link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #333;
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      .hero {
+        margin-top: 70px;
+        min-height: 100vh;
+        position: relative;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      /* Add more critical styles as needed */
+    </style>
+
+    <!-- Preload critical resources -->
+    <link
+      rel="preload"
+      href="styles/main.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <link rel="preload" href="scripts/app.js" as="script" />
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      as="style"
+    />
+
+    <!-- Preconnect to CDNs -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fakestoreapi.com" />
+
+    <!-- DNS prefetch for external domains -->
+    <link rel="dns-prefetch" href="https://fakestoreapi.com" />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+
+    <!-- Non-critical CSS loaded asynchronously -->
+    <link
+      rel="stylesheet"
+      href="styles/main.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <link
+      rel="stylesheet"
+      href="styles/optimization.css"
+      media="print"
+      onload="this.media='all'"
+    />
+
+    <!-- Deferred Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      media="print"
+      onload="this.media='all'"
+    />
+
+    <!-- Preload critical images -->
+    <link
+      rel="preload"
+      href="https://images.unsplash.com/photo-1607082350899-7e105aa886ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+      as="image"
+    />
   </head>
   <body>
-    <header>
-      <h1>Welcome to Our Online Store</h1>
+    <!-- Header Section -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <!-- Logo -->
+          <div class="logo">
+            <a href="index.html" class="logo-link">
+              <i class="fas fa-shopping-bag"></i>
+              <span class="logo-text">ShopEasy</span>
+            </a>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <nav class="desktop-nav">
+            <ul class="nav-list">
+              <li class="nav-item">
+                <a href="#home" class="nav-link active">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="#products" class="nav-link">Products</a>
+              </li>
+              <li class="nav-item">
+                <a href="#categories" class="nav-link">Categories</a>
+              </li>
+              <li class="nav-item">
+                <a href="#about" class="nav-link">About</a>
+              </li>
+              <li class="nav-item">
+                <a href="#contact" class="nav-link">Contact</a>
+              </li>
+            </ul>
+          </nav>
+
+          <nav class="mobile-nav">
+            <ul class="mobile-nav-list">
+              <li class="mobile-nav-item">
+                <a href="index.html" class="mobile-nav-link">Home</a>
+              </li>
+              <li class="mobile-nav-item">
+                <a href="index.html#products" class="mobile-nav-link"
+                  >Products</a
+                >
+              </li>
+              <li class="mobile-nav-item">
+                <a href="#categories" class="mobile-nav-link">Categories</a>
+              </li>
+              <li class="mobile-nav-item">
+                <a href="#about" class="mobile-nav-link">About</a>
+              </li>
+              <li class="mobile-nav-item">
+                <a href="#contact" class="mobile-nav-link">Contact</a>
+              </li>
+              <li class="mobile-nav-item">
+                <a href="login.html" class="mobile-nav-link">Login</a>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Right Side Elements -->
+          <div class="header-right">
+            <!-- Search Bar -->
+            <div class="search-container">
+              <input
+                type="text"
+                class="search-input"
+                placeholder="Search products..."
+              />
+              <button class="search-btn">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+
+            <!-- Cart Icon -->
+            <div class="cart-container">
+              <a href="#cart" class="cart-link">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-badge">3</span>
+              </a>
+            </div>
+
+            <!-- Hamburger Menu -->
+            <div class="hamburger-menu">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+
+            <!-- User Account -->
+            <!-- User Account -->
+            <div class="user-container">
+              <a href="login.html" class="user-link">
+                <i class="fas fa-user"></i>
+                <span class="user-text">Login</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav">
+          <ul class="mobile-nav-list">
+            <li class="mobile-nav-item">
+              <a href="#home" class="mobile-nav-link active">Home</a>
+            </li>
+            <li class="mobile-nav-item">
+              <a href="#products" class="mobile-nav-link">Products</a>
+            </li>
+            <li class="mobile-nav-item">
+              <a href="#categories" class="mobile-nav-link">Categories</a>
+            </li>
+            <li class="mobile-nav-item">
+              <a href="#about" class="mobile-nav-link">About</a>
+            </li>
+            <li class="mobile-nav-item">
+              <a href="#contact" class="mobile-nav-link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
+
+    <!-- Enhanced Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-background">
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <span class="hero-badge">Limited Time Offer</span>
+            <h1 class="hero-title">
+              <span class="title-line">Biggest Sale</span>
+              <span class="title-line highlight">Of The Year</span>
+            </h1>
+            <p class="hero-subtitle">
+              Discover amazing deals on premium products. Up to
+              <strong>70% OFF</strong> on selected items. Don't miss out on this
+              exclusive shopping experience!
+            </p>
+            <div class="hero-stats">
+              <div class="stat-item">
+                <span class="stat-number">50K+</span>
+                <span class="stat-label">Happy Customers</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">10K+</span>
+                <span class="stat-label">Products</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Support</span>
+              </div>
+            </div>
+            <div class="hero-actions">
+              <button class="btn btn-primary" id="shopNowBtn">
+                <span>Shop Now</span>
+                <i class="fas fa-arrow-right"></i>
+              </button>
+              <button class="btn btn-secondary" id="exploreBtn">
+                <span>Explore More</span>
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="floating-card card-1">
+              <i class="fas fa-truck"></i>
+              <span>Free Shipping</span>
+            </div>
+            <div class="floating-card card-2">
+              <i class="fas fa-shield-alt"></i>
+              <span>Secure Payment</span>
+            </div>
+            <div class="floating-card card-3">
+              <i class="fas fa-medal"></i>
+              <span>Premium Quality</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator">
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- Featured Products Preview -->
+    <section class="featured-preview">
+      <div class="container">
+        <div class="preview-grid">
+          <div class="preview-item">
+            <i class="fas fa-tshirt"></i>
+            <h3>Fashion</h3>
+            <p>Latest trends</p>
+          </div>
+          <div class="preview-item">
+            <i class="fas fa-mobile-alt"></i>
+            <h3>Electronics</h3>
+            <p>Smart gadgets</p>
+          </div>
+          <div class="preview-item">
+            <i class="fas fa-home"></i>
+            <h3>Home & Living</h3>
+            <p>Comfort items</p>
+          </div>
+          <div class="preview-item">
+            <i class="fas fa-heart"></i>
+            <h3>Beauty</h3>
+            <p>Self care</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dynamic Product Grid Section -->
+    <section class="products-section" id="products">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Featured Products</h2>
+          <p class="section-subtitle">Discover our most popular items</p>
+        </div>
+
+        <!-- Product Filters -->
+        <div class="product-filters">
+          <button class="filter-btn active" data-filter="all">
+            All Products
+          </button>
+          <button class="filter-btn" data-filter="electronics">
+            Electronics
+          </button>
+          <button class="filter-btn" data-filter="jewelery">Jewelery</button>
+          <button class="filter-btn" data-filter="men's clothing">
+            Men's Clothing
+          </button>
+          <button class="filter-btn" data-filter="women's clothing">
+            Women's Clothing
+          </button>
+        </div>
+
+        <!-- Loading State -->
+        <div class="loading-spinner" id="loadingSpinner">
+          <div class="spinner"></div>
+          <p>Loading products...</p>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="product-grid" id="productGrid">
+          <!-- Products will be dynamically loaded here -->
+        </div>
+
+        <!-- Load More Button -->
+        <div class="load-more-container">
+          <button class="btn btn-outline" id="loadMoreBtn">
+            <span>Load More Products</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
     <script src="scripts/app.js"></script>
+    <script src="scripts/products.js"></script>
+    <!-- Scripts with proper loading strategies -->
+    <script src="scripts/image-optimizer.js" defer></script>
+    <script src="scripts/app.js" defer></script>
+    <script src="scripts/products.js" defer></script>
+
+    <!-- Third-party analytics with async -->
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
   </body>
 </html>

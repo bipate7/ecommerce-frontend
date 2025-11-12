@@ -1,0 +1,83 @@
+/* Performance Optimized CSS */
+/* Critical CSS should be inlined in HTML */
+
+/* Defer non-critical CSS */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Optimize font loading */
+.font-optimized {
+  font-display: swap;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Content Visibility API for performance */
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 5000px;
+}
+
+/* Optimize scrolling performance */
+.optimize-scrolling {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Reduce layout shifts */
+.stable-layout {
+  will-change: transform;
+  contain: layout style paint;
+}
+
+/* Optimize animations */
+.performance-animation {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Print styles to avoid loading unnecessary resources */
+@media print {
+  .hero-background,
+  .product-image img:not(.essential),
+  .mobile-nav {
+    display: none !important;
+  }
+
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Data saving mode */
+@media (prefers-reduced-data: reduce) {
+  .hero-background,
+  .product-image img:not(.critical) {
+    display: none;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  }
+}
+
+/* Optimize for slow connections */
+@media (prefers-reduced-data: reduce) and (max-width: 768px) {
+  .preview-grid {
+    display: none;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+  }
+}

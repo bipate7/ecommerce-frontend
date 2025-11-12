@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details - ShopEasy</title>
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles/main.css" as="style" />
+    <link rel="preload" href="scripts/app.js" as="script" />
+
+    <!-- Preconnect to CDNs -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- DNS prefetch for external domains -->
+    <link rel="dns-prefetch" href="https://fakestoreapi.com" />
+
+    <!-- Add to existing stylesheets -->
+    <link rel="stylesheet" href="styles/optimization.css" />
+
+    <!-- Add to existing scripts -->
+    <script src="scripts/image-optimizer.js"></script>
+
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/product-detail.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      /* Critical above-the-fold CSS */
+      .header {
+        background: #fff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+      }
+      .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 0;
+        height: 70px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .logo-link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #333;
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      .hero {
+        margin-top: 70px;
+        min-height: 100vh;
+        position: relative;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      /* Add more critical styles as needed */
+    </style>
+
+    <!-- Preload critical resources -->
+    <link
+      rel="preload"
+      href="styles/main.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <link rel="preload" href="scripts/app.js" as="script" />
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      as="style"
+    />
+
+    <!-- Preconnect to CDNs -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fakestoreapi.com" />
+
+    <!-- DNS prefetch for external domains -->
+    <link rel="dns-prefetch" href="https://fakestoreapi.com" />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+
+    <!-- Non-critical CSS loaded asynchronously -->
+    <link
+      rel="stylesheet"
+      href="styles/main.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <link
+      rel="stylesheet"
+      href="styles/optimization.css"
+      media="print"
+      onload="this.media='all'"
+    />
+
+    <!-- Deferred Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      media="print"
+      onload="this.media='all'"
+    />
+
+    <!-- Preload critical images -->
+    <link
+      rel="preload"
+      href="https://images.unsplash.com/photo-1607082350899-7e105aa886ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+      as="image"
+    />
+  </head>
+  <body>
+    <!-- Header Section (Same as index.html) -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <!-- Logo -->
+          <div class="logo">
+            <a href="index.html" class="logo-link">
+              <i class="fas fa-shopping-bag"></i>
+              <span class="logo-text">ShopEasy</span>
+            </a>
+          </div>
+
+          <nav class="mobile-nav">
+            <ul class="mobile-nav-list">
+              <li class="mobile-nav-item">
+                <a href="index.html" class="mobile-nav-link">Home</a>
+              </li>
+              <li class="mobile-nav-item">
+                <a href="index.html#products" class="mobile-nav-link"
+                  >Products</a
+                >
+              </li>
+              <li class="mobile-nav-item">
+                <a href="#categories" class="mobile-nav-link">Categories</a>
+              </li>
+              <li class="mobile-nav-item">
+                <a href="#about" class="mobile-nav-link">About</a>
+              </li>
+              <li class="mobile-nav-item">
+                <a href="#contact" class="mobile-nav-link">Contact</a>
+              </li>
+              <li class="mobile-nav-item">
+                <a href="login.html" class="mobile-nav-link">Login</a>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Desktop Navigation -->
+          <nav class="desktop-nav">
+            <ul class="nav-list">
+              <li class="nav-item">
+                <a href="index.html" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="index.html#products" class="nav-link">Products</a>
+              </li>
+              <li class="nav-item">
+                <a href="#categories" class="nav-link">Categories</a>
+              </li>
+              <li class="nav-item">
+                <a href="#about" class="nav-link">About</a>
+              </li>
+              <li class="nav-item">
+                <a href="#contact" class="nav-link">Contact</a>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Right Side Elements -->
+          <div class="header-right">
+            <!-- Search Bar -->
+            <div class="search-container">
+              <input
+                type="text"
+                class="search-input"
+                placeholder="Search products..."
+              />
+              <button class="search-btn">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+
+            <!-- Cart Icon -->
+            <div class="cart-container">
+              <a href="#cart" class="cart-link">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-badge">0</span>
+              </a>
+            </div>
+
+            <!-- User Account -->
+            <div class="user-container">
+              <a href="login.html" class="user-link">
+                <i class="fas fa-user"></i>
+                <span class="user-text">Login</span>
+              </a>
+            </div>
+
+            <!-- Hamburger Menu -->
+            <div class="hamburger-menu">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav">
+          <ul class="mobile-nav-list">
+            <li class="mobile-nav-item">
+              <a href="index.html" class="mobile-nav-link">Home</a>
+            </li>
+            <li class="mobile-nav-item">
+              <a href="index.html#products" class="mobile-nav-link">Products</a>
+            </li>
+            <li class="mobile-nav-item">
+              <a href="#categories" class="mobile-nav-link">Categories</a>
+            </li>
+            <li class="mobile-nav-item">
+              <a href="#about" class="mobile-nav-link">About</a>
+            </li>
+            <li class="mobile-nav-item">
+              <a href="#contact" class="mobile-nav-link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb">
+      <div class="container">
+        <a href="index.html">Home</a>
+        <i class="fas fa-chevron-right"></i>
+        <a href="index.html#products">Products</a>
+        <i class="fas fa-chevron-right"></i>
+        <span id="breadcrumb-category">Product</span>
+        <i class="fas fa-chevron-right"></i>
+        <span id="breadcrumb-title" class="current">Loading...</span>
+      </div>
+    </nav>
+
+    <!-- Product Detail Section -->
+    <section class="product-detail">
+      <div class="container">
+        <div class="product-detail-content">
+          <!-- Loading State -->
+          <div class="loading-spinner" id="detailLoadingSpinner">
+            <div class="spinner"></div>
+            <p>Loading product details...</p>
+          </div>
+
+          <!-- Product Detail Content -->
+          <div
+            class="product-detail-main"
+            id="productDetailMain"
+            style="display: none"
+          >
+            <!-- Product Images -->
+            <div class="product-images">
+              <div class="main-image">
+                <img id="mainProductImage" src=" " alt="Product Image" />
+                <div class="image-zoom" id="imageZoom">
+                  <img id="zoomedImage" src=" " alt="Zoomed Product Image" />
+                </div>
+              </div>
+              <div class="image-thumbnails" id="imageThumbnails">
+                <!-- Thumbnails will be dynamically generated -->
+              </div>
+            </div>
+
+            <!-- Product Info -->
+            <div class="product-info">
+              <div class="product-header">
+                <span class="product-category" id="productCategory"></span>
+                <h1 class="product-title" id="productTitle">Product Title</h1>
+                <div class="product-rating" id="productRating">
+                  <div class="rating-stars"></div>
+                  <span class="rating-count"></span>
+                  <span class="rating-text"></span>
+                </div>
+              </div>
+
+              <div class="product-pricing">
+                <div class="price-container">
+                  <span class="current-price" id="currentPrice">₹0</span>
+                  <span class="original-price" id="originalPrice"></span>
+                  <span class="discount-badge" id="discountBadge"></span>
+                </div>
+                <div class="stock-info" id="stockInfo">
+                  <i class="fas fa-check-circle"></i>
+                  <span>In Stock</span>
+                </div>
+              </div>
+
+              <div class="product-description-full">
+                <h3>Description</h3>
+                <p id="productDescriptionFull">
+                  Product description will appear here...
+                </p>
+              </div>
+
+              <!-- Product Variations -->
+              <!-- Replace the product variations section in product.html with this enhanced version -->
+              <div class="product-variations">
+                <div class="variation-group">
+                  <label for="sizeSelect">Size:</label>
+                  <div class="variation-options" id="sizeOptions">
+                    <button
+                      type="button"
+                      class="variation-option"
+                      data-value="s"
+                      data-available="true"
+                    >
+                      S
+                    </button>
+                    <button
+                      type="button"
+                      class="variation-option"
+                      data-value="m"
+                      data-available="true"
+                    >
+                      M
+                    </button>
+                    <button
+                      type="button"
+                      class="variation-option"
+                      data-value="l"
+                      data-available="true"
+                    >
+                      L
+                    </button>
+                    <button
+                      type="button"
+                      class="variation-option"
+                      data-value="xl"
+                      data-available="false"
+                    >
+                      XL
+                    </button>
+                    <button
+                      type="button"
+                      class="variation-option"
+                      data-value="xxl"
+                      data-available="true"
+                    >
+                      XXL
+                    </button>
+                  </div>
+                  <div class="variation-feedback" id="sizeFeedback"></div>
+                </div>
+
+                <div class="variation-group">
+                  <label for="colorSelect">Color:</label>
+                  <div class="variation-options" id="colorOptions">
+                    <button
+                      type="button"
+                      class="variation-option color-option"
+                      data-value="black"
+                      data-available="true"
+                      style="background-color: #000000"
+                      title="Black"
+                    ></button>
+                    <button
+                      type="button"
+                      class="variation-option color-option"
+                      data-value="white"
+                      data-available="true"
+                      style="
+                        background-color: #ffffff;
+                        border: 2px solid #e0e0e0;
+                      "
+                      title="White"
+                    ></button>
+                    <button
+                      type="button"
+                      class="variation-option color-option"
+                      data-value="blue"
+                      data-available="true"
+                      style="background-color: #007bff"
+                      title="Blue"
+                    ></button>
+                    <button
+                      type="button"
+                      class="variation-option color-option"
+                      data-value="red"
+                      data-available="true"
+                      style="background-color: #dc3545"
+                      title="Red"
+                    ></button>
+                    <button
+                      type="button"
+                      class="variation-option color-option"
+                      data-value="green"
+                      data-available="false"
+                      style="background-color: #28a745"
+                      title="Green (Out of Stock)"
+                    ></button>
+                  </div>
+                  <div class="variation-feedback" id="colorFeedback"></div>
+                </div>
+
+                <div class="variation-group">
+                  <label for="materialSelect">Material:</label>
+                  <div class="variation-options" id="materialOptions">
+                    <button
+                      type="button"
+                      class="variation-option"
+                      data-value="cotton"
+                      data-available="true"
+                    >
+                      Cotton
+                    </button>
+                    <button
+                      type="button"
+                      class="variation-option"
+                      data-value="polyester"
+                      data-available="true"
+                    >
+                      Polyester
+                    </button>
+                    <button
+                      type="button"
+                      class="variation-option"
+                      data-value="wool"
+                      data-available="true"
+                    >
+                      Wool
+                    </button>
+                    <button
+                      type="button"
+                      class="variation-option"
+                      data-value="silk"
+                      data-available="false"
+                    >
+                      Silk
+                    </button>
+                  </div>
+                  <div class="variation-feedback" id="materialFeedback"></div>
+                </div>
+              </div>
+
+              <!-- Replace the quantity selector with this enhanced version -->
+              <div class="quantity-selector">
+                <label for="quantity">Quantity:</label>
+                <div class="quantity-controls">
+                  <button class="quantity-btn" id="decreaseQuantity">-</button>
+                  <input
+                    type="number"
+                    id="quantity"
+                    class="quantity-input"
+                    value="1"
+                    min="1"
+                    max="10"
+                    readonly
+                  />
+                  <button class="quantity-btn" id="increaseQuantity">+</button>
+                </div>
+                <div class="quantity-feedback">
+                  <span id="quantityMessage">Maximum 10 items per order</span>
+                </div>
+              </div>
+
+              <!-- Add real-time price display -->
+              <div class="price-summary">
+                <div class="price-breakdown">
+                  <div class="price-row">
+                    <span>Base Price:</span>
+                    <span id="basePrice">₹0</span>
+                  </div>
+                  <div class="price-row">
+                    <span>Quantity:</span>
+                    <span id="quantityDisplay">1 x </span>
+                  </div>
+                  <div class="price-row discount-row">
+                    <span>Discount:</span>
+                    <span id="discountAmount">-₹0</span>
+                  </div>
+                  <div class="price-row total-row">
+                    <span><strong>Total Price:</strong></span>
+                    <span id="totalPrice"><strong>₹0</strong></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Add success notification element -->
+              <div id="addToCartSuccess" class="success-notification">
+                <div class="success-content">
+                  <i class="fas fa-check-circle"></i>
+                  <div class="success-message">
+                    <strong>Product added to cart!</strong>
+                    <span>Item successfully added to your shopping cart.</span>
+                  </div>
+                  <button class="success-close">&times;</button>
+                </div>
+              </div>
+
+              <!-- Quantity Selector -->
+              <div class="quantity-selector">
+                <label for="quantity">Quantity:</label>
+                <div class="quantity-controls">
+                  <button class="quantity-btn" id="decreaseQuantity">-</button>
+                  <input
+                    type="number"
+                    id="quantity"
+                    class="quantity-input"
+                    value="1"
+                    min="1"
+                    max="10"
+                  />
+                  <button class="quantity-btn" id="increaseQuantity">+</button>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="product-actions-detail">
+                <button class="btn btn-primary btn-large" id="addToCartDetail">
+                  <i class="fas fa-shopping-cart"></i>
+                  Add to Cart
+                </button>
+                <button class="btn btn-secondary btn-large" id="buyNowBtn">
+                  <i class="fas fa-bolt"></i>
+                  Buy Now
+                </button>
+                <button class="wishlist-btn-detail" id="wishlistDetail">
+                  <i class="far fa-heart"></i>
+                </button>
+              </div>
+
+              <!-- Product Features -->
+              <div class="product-features">
+                <div class="feature-item">
+                  <i class="fas fa-shipping-fast"></i>
+                  <span>Free Shipping</span>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-shield-alt"></i>
+                  <span>2-Year Warranty</span>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-undo"></i>
+                  <span>30-Day Returns</span>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-headset"></i>
+                  <span>24/7 Support</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Error State -->
+          <div class="error-state" id="detailErrorState" style="display: none">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h3>Product Not Found</h3>
+            <p>Sorry, we couldn't find the product you're looking for.</p>
+            <a href="index.html" class="btn btn-primary">Back to Shopping</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Products Section -->
+    <section class="related-products">
+      <div class="container">
+        <h2>You May Also Like</h2>
+        <div class="related-products-grid" id="relatedProductsGrid">
+          <!-- Related products will be loaded here -->
+        </div>
+      </div>
+    </section>
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/product-detail.js"></script>
+    <!-- Scripts with proper loading strategies -->
+    <script src="scripts/image-optimizer.js" defer></script>
+    <script src="scripts/app.js" defer></script>
+    <script src="scripts/products.js" defer></script>
+
+    <!-- Third-party analytics with async -->
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+  </body>
+</html>
